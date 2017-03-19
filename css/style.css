@@ -1,0 +1,838 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    margin:0;
+    background-color:#DFD5CD;
+}
+
+
+*{font-family:arial;
+    -webkit-user-select:none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */}
+
+@media only screen and (min-width: 650px){
+    #resetTop, #spinnerTop{
+        display:none !important;
+    }
+    .about img {
+        width: 100%;
+        height: auto !important;
+    }
+
+    #logo img{
+        width: 180px;
+        height: auto !important;
+    }
+
+    #logo{
+        left:-20%;
+    }
+    #descrizione_programma{
+        height:18%;
+    }
+
+}
+
+@media only screen and (max-width: 649px) and (min-width: 400px) {
+    #blocco_tasti2 span, .registro, #slash,#spinnerTop, .label, .numero, .operatore, #exchange, #toA,#etichetta{
+        font-size: 13px !important;
+    }
+    #clear, table td,#progName,#posizione_stampa,#descrizione_programma,#modal2{
+        font-size:11px !important;
+    }
+    #modal3{
+        font-size:19px !important;
+    }
+    #record_pr,#print_pr, #resetTop, #eliminaStampa,#interlinea{
+        font-size: 9px !important;
+    }
+    #resetBottom, #spinnerBottom{
+        display:none !important;
+    }
+
+    #resetTop, #spinnerTop{
+        display:inline-block !important;
+
+    }
+    #etichetta{
+        font-size: 11px !important;
+    }
+    ul.topnav li a{
+        padding: 12px 14px !important;
+    }
+    .about img {
+        width: 400px;
+        height: auto !important;
+    }
+
+    #logo img{
+        width: 80px;
+        height: auto !important;
+    }
+    #logo{
+        left:0%;
+    }
+    #descrizione_programma{
+        height:16%;
+    }
+}
+
+@media only screen and (max-width: 399px)and (min-width: 241px) {
+
+    #blocco_tasti2 span, .registro, #slash,#spinnerTop, .label, .numero, .operatore, #exchange, #toA,#etichetta{
+        font-size: 11px !important;
+    }
+    #clear, table td,#posizione_stampa,#descrizione_programma,#modal2{
+        font-size: 9px !important;
+    }
+    #modal3{
+        font-size:16px !important;
+    }
+
+    #record_pr,#print_pr,#progName, #resetTop, #eliminaStampa,#interlinea{
+        font-size: 7px !important;
+    }
+    #resetBottom, #spinnerBottom{
+        display:none !important;
+    }
+    #resetTop, #spinnerTop{
+        display:inline-block !important;
+
+    }
+    ul.topnav li a{
+        padding: 8px 10px !important;
+    }
+    #output{
+        top:41px !important;
+    }
+    .about img {
+        width: 350px;
+        height: auto !important;
+    }
+
+    #logo img{
+        width: 60px;
+        height: auto !important;
+    }
+    #logo{
+        left:0%;
+    }
+    #descrizione_programma{
+        height:12%;
+    }
+}
+@media only screen and (max-width: 240px) {
+
+    #blocco_tasti2 span, .registro,#spinnerTop, #slash, .label, .numero, .operatore, #exchange, #toA{
+        font-size: 9px !important;
+    }
+    #clear, table td,#posizione_stampa,#progName,#etichetta,#descrizione_programma,#modal2{
+        font-size: 7px !important;
+    }
+    #modal3{
+        font-size:13px !important;
+    }
+
+    #record_pr,#print_pr, #resetTop, #eliminaStampa,#interlinea{
+        font-size: 6px !important;
+    }
+    #resetBottom, #spinnerBottom{
+        display:none !important;
+    }
+    #resetTop, #spinnerTop{
+        display:inline-block !important;
+    }
+    #etichetta{
+        padding:0 !important;
+    }
+    #resetTop, #eliminaStampa,#interlinea{
+        padding:0.1em !important;
+    }
+
+    ul.topnav li a{
+        padding: 6px 8px !important;
+    }
+    #output{
+        top:38px !important;
+    }
+    .about img {
+        width: 300px;
+        height: auto !important;
+    }
+
+    #logo img{
+        width: 40px;
+        height: auto !important;
+    }
+    #descrizione_programma{
+        height:10%;
+    }
+}
+
+
+#output{
+    position:absolute;
+    top:50px;
+    width:98vw;
+    max-width: 650px;
+    height:60%;
+    padding:0;
+    margin:0 auto;
+    font-size:0;
+    text-align:center;
+    display:inline-block;
+    z-index:-1;
+}
+
+#controlli{
+    position:absolute;
+    top:5vh;
+    width:98vw;
+    max-width: 650px;
+    padding:0;
+    margin-top:1px;
+    text-align:center;
+    font-size:0;
+}
+
+@media only screen and (min-width: 530px){
+    /*#controlli{
+        bottom:210px !important;
+    }
+    #lights{
+                bottom:245px !important;
+
+    }*/
+}
+#lights{
+    position:absolute;
+    top: 0%;
+    width:98vw;
+    max-width: 650px;
+    height:8vh;
+    padding:0;
+    margin:0;
+    display:inline-block;
+    text-align:center;
+    font-size:0;
+}
+
+#tastiera {
+    position:absolute;
+    bottom:1%;
+    width:98.2vw;
+    max-width: 500px;
+    padding:0;
+    margin:0 auto;
+    font-size:0;
+}
+
+#blocco_tasti1{
+    width:calc(100%/11*5);
+    max-width:calc(500px*5/11);
+    background-color:black;
+    margin:0;
+    display:inline-block;
+}
+#blocco_tasti2{
+
+    width:calc(100%/11*2);
+    max-width:calc(500px*2/11);
+    background-color:black;
+    display:inline-block;
+    margin:0;
+    padding:0;
+    vertical-align:top;
+}
+#blocco_tasti3{
+
+    width:calc(100%/11*4);
+    max-width:calc(500px*4/11);
+    background-color:black;
+    display:inline-block;
+    margin:0;
+}
+#blocco_tasti1 span {
+    width:calc(98vw/11);
+    height:calc(98vw/11);
+    max-width:calc(500px/11);
+    max-height:calc(500px/11);
+    display: inline-block;
+    text-align: center;
+    vertical-align:middle;
+}
+#blocco_tasti2 span{
+    font-family: sans-serif;
+    font-size:15px;
+    width:calc(98vw/11*2);
+    height:calc(98vw/11*4);
+    max-width:calc(500px/11*2);
+    max-height:calc(500px/11*4);
+    display: inline-block;
+    background: url("../images/start.png") 0 0 / cover;
+    color: white;
+    vertical-align:middle;
+    text-align: center;
+
+
+}
+#blocco_tasti3 span {
+    width:calc(98vw/11);
+    max-width:calc(500px/11);
+    height:calc(98vw/11);
+    max-height:calc(500px/11);
+    display: inline-block;
+    text-align: center;
+    vertical-align:middle;
+}
+.registro, #slash, .label{
+    font-family: arial,sans-serif;
+    font-size: 15px;
+    background: url("../images/registro.png") 0 0 / cover;
+    color: white;
+    font-weight:bold;
+}
+.label{
+    background: url("../images/label.png") 0 0 / cover !important;
+
+}
+
+.numero{
+    font-family: arial,sans-serif;
+    font-size: 15px;
+    background: url("../images/numero.png") 0 0 / cover;
+    color: black;
+    font-weight:bold;
+}
+.operatore, #exchange{
+    font-family: arial,sans-serif;
+    font-size: 15px;
+    background: url("../images/operatore.png") 0 0 / cover;
+    color: black;
+    font-weight:bold;
+
+}
+#toA{
+    font-family: arial,sans-serif;
+    font-size: 15px;
+    background: url("../images/cambio.png") 0 0 / cover;
+    color: black;
+    font-weight:bold;
+    width:calc(98vw*2/11) !important;
+    max-width:calc(500px*2/11) !important;
+}
+#clear{
+    font-family: arial,sans-serif;
+    font-size: 13px;
+    background: url("../images/numero.png") 0 0 / cover;
+    color: black;
+    font-style:italic;
+}
+
+#blocco_tasti1 span:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#blocco_tasti2 span:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#blocco_tasti3 span:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#tastiera span:hover {
+    position: relative;
+    left: 1px;
+    top: 1px;
+    cursor: pointer;
+}
+#registri{
+    position:absolute;
+    top:1%;
+    bottom:30%;
+    right:1%;
+    width:38%;
+    height:65%;
+
+    max-width:230px;
+    background: #fff;
+    border: 1px solid;
+    border-radius:5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding:0;
+    overflow:auto;
+
+}
+table {
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    width:100%;
+    height:100%;
+    max-width:230px;
+    background: #fff;
+    border-radius:5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding:0;
+
+}
+td {
+    right:5%;
+    font-size:13px;
+    text-align:right;
+
+}
+td.columnA {
+    text-align:center!important;
+    padding:0;
+    width: 20%;
+    border:1px solid black;
+    border-radius:5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+td.columnB {
+    width: 80%;
+}
+
+#posizione_stampa{
+    position:absolute;
+    top:1%;
+    bottom:30%;
+    left:1%;
+    width:38%;
+    height:65%;
+    max-width:230px;
+    font-size:15px;
+    border: 1px solid grey;
+    background-color:white;
+    border-radius:5px;
+    overflow:auto;
+    text-align: right;
+}
+
+#stampa{
+    width:100%;
+    max-height:100%;
+    position:absolute;
+    bottom:0;
+    right: 5%;
+}
+#caricaProgramma{
+    position:absolute;
+    top:1%;
+    bottom:30%;
+    left:40%;
+    right:40%;
+    width:20%;
+    height:100%;
+    max-width:180px;
+}
+
+#logo{
+    position:absolute;
+    width:100%;
+    height:20%;
+    /*bottom:30%;
+    left:-25%;*/
+}
+
+
+
+#cartolinaDiv,#cartolinaDiv2{
+    position:absolute;
+    width:90%;
+    left:5%;
+    bottom:40%;
+    overflow:hidden;
+}
+
+.bordo{
+    border-bottom:5px solid black;
+}
+
+#cartolina{
+    height:80%;
+    width:85%;
+    margin-bottom:10%;
+    display:none;
+
+    -ms-transition:margin-bottom 1s linear;
+    -moz-transition:margin-bottom 1s linear;
+    -webkit-transition:margin-bottom 1s linear;
+    /* -0-transition:margin-bottom 1s linear;--> */
+    transition:margin-bottom 1s linear;
+}
+
+#progName{
+    height:70%;
+    width:70%;
+    margin-bottom:35%;
+    display:none;
+    font-size:12px;
+    text-align:center;
+    background-color:#EDF3F1;
+    border:1px solid grey;
+}
+
+.inserisci{
+    margin-bottom:-40% !important;
+}
+
+input[type="file"] {
+    display:none;
+}
+
+
+#upload {
+    float:left;
+    width:100%;
+    cursor:pointer;
+    display:inline-block;
+}
+
+#save {
+    float:left;
+    width:100%;
+    cursor:pointer;
+    display:inline-block;
+}
+
+#tastiera,#lights, #controlli, #output,#p101{
+    left: 50%;
+    transform: translate(-50%);
+
+}
+
+#record_pr , #print_pr{
+    font-size:11px;
+    color:white;
+    background-color:black;
+    width: 16vw;
+    height: 7vw;
+    max-width:84px;
+    max-height:42px;
+    display:inline-block;
+    text-align: center;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius:3px;
+    margin-left:3%;
+    vertical-align:middle;
+}
+
+#record_pr:after , #print_pr:after, #keyb_rel:after,#resetBottom {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#spinnerTop{
+    padding:0.5em;
+    max-width:52px;
+    max-height:100%;
+    text-align: center;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius:5px;
+    border:1px solid black;
+    text-align:center;
+    display:inline-block;
+    margin-left:5%;
+    background-color:black;
+    color:white;
+    vertical-align:middle;
+}
+
+#spinnerBottom{
+    position:absolute;
+    bottom:100px;
+    right:50%;
+    transform:translate(320px);
+    width:9vw;
+    height:10vw;
+    font-size:15px;
+    max-width:42px;
+    max-height:52px;
+    text-align: center;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius:5px;
+    border:1px solid black;
+    text-align:center;
+    display:inline-block;
+    margin-left:6%;
+    background-color:black;
+    color:white;
+}
+
+#resetTop{
+    display:inline-block;
+    vertical-align:middle;
+    width:9vw;
+    max-width:42px;
+    max-height:100%;
+    font-size:11px;
+    border:1px solid black;
+    border-radius:3px;
+    background-color:#DFD5CD;
+    margin-right:3%;
+    padding: 0.6em;
+}
+
+#resetBottom{
+    position:absolute;
+    bottom:130px;
+    left:50%;
+    transform:translate(-310px);
+    width:9vw;
+    height:10vw;
+    max-width:42px;
+    max-height:52px;
+    font-size:11px;
+    border:3px solid black;
+    border-radius:3px;
+    background-color:#DFD5CD;
+    text-align:center;
+}
+
+#eliminaStampa{
+    display:inline-block;
+    vertical-align:middle;
+    width:9vw;
+    padding: 0.6em;
+    max-width:42px;
+    max-height:52px;
+    font-size:11px;
+    border:1px solid black;
+    border-radius:3px;
+    background-color:#DFD5CD;
+
+
+}
+#interlinea{
+    display:inline-block;
+    vertical-align:middle;
+    width:4vw;
+    padding: 0.6em;
+    max-width:28px;
+    max-height:52px;
+    font-size:11px;
+    border:1px solid black;
+    border-radius:3px;
+    background-color:#DFD5CD;
+    margin-right:1%;
+    vertical-align:top;
+
+
+}
+#resetTop:hover, #eliminaStampa:hover, #interlinea:hover {
+    position: relative;
+    top: 1px;
+    left: 1px;
+    cursor: pointer;
+}
+#resetBottom:hover{
+    cursor: pointer;
+    border-top:4px solid;
+    border-left:4px solid;
+}
+#etichetta{
+    width:45%;
+    float:left;
+    color:White;
+    background-color:SlateGrey;
+    font-size:15px;
+    vertical-align:top;
+    margin-left:1%;
+    padding:0.1em;
+}
+#green_light {
+    display:inline-block;
+    width:25%;
+    height:55%;
+    background-color: steelblue;
+    margin-right:0;
+
+}
+
+#red_light {
+    display:inline-block;
+    width:15%;
+    height:55%;
+    background-color:indianred;
+    border-radius:0 6px 6px 0;
+
+    margin-right:1%;
+}
+
+#record_pr:hover , #print_pr:hover, #keyb_rel:hover{
+    position: relative;
+    top: 1px;
+    left: 1px;
+    border-color: #e5e5e5;
+    cursor: pointer;
+}
+
+.regselected{
+    border:2px solid;
+    border-radius:2px;
+}
+.modactive{
+    color:yellow !important;
+
+}
+
+.spinner{
+    font-size:15px;
+}
+
+
+
+/* Remove margins and padding from the list, and add a black background color */
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #4a4d4f; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient( #4a4d4f, #6f7275); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient( #4a4d4f, #6f7275);  /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient( #4a4d4f, #6f7275);  /* For Firefox 3.6 to 15 */
+    background: linear-gradient( #4a4d4f, #6f7275); /* Standard syntax */
+
+}
+
+/* Float the list items side by side */
+ul.topnav li {float: left;}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.topnav li a:hover {background-color: #4682B4;}
+
+/* Hide the list item that contains the link that should open and close the topnav on small screens */
+ul.topnav li.icon {display: none;}
+/* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Home"). Show the list item that contains the link to open and close the topnav (li.icon) */
+@media screen and (max-width:650px) {
+    ul.topnav li:not(:first-child) {display: none;}
+    ul.topnav li.icon {
+        float: right;
+        display: inline-block;
+
+    }
+
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+@media screen and (max-width:680px) {
+    ul.topnav.responsive {position: relative;}
+    ul.topnav.responsive li.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    ul.topnav.responsive li {
+        float: none;
+        display: inline;
+    }
+    ul.topnav.responsive li a {
+        display: block;
+        text-align: left;
+    }
+}
+#modal,#modal2, #modal3{
+    /* arbitrary styling */
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    position:fixed;
+    z-index:10;
+    display:none;
+    left:50%;
+    transform: translate(-50%);
+}
+#modal {
+    padding: 3%;
+    border: 1px solid black;
+    text-align: left !important;
+}
+#modal2, #modal3{
+    padding:10px;
+    border: 1px solid black;
+    text-align: justify;
+}
+.programma{
+    cursor:pointer;
+}
+
+.programma:hover{
+    text-decoration:underline;
+}
+#closedial,#closedial2,#exitButton{
+    text-align:center;
+    float:right;
+    cursor:pointer;
+    color:white;
+    background-color:#000000;
+    border:2px solid black;
+    border-radius:4px;
+    z-index:100;
+    margin:3%;
+}
+#exitCancel{
+    text-align:center;
+    float:left;
+    cursor:pointer;
+    color:white;
+    background-color:#000000;
+    border:2px solid black;
+    border-radius:4px;
+    z-index:100;
+    margin:3%;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    margin:0 !important;
+}
+
+
+#closedial2,#exitButton{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    margin:0 !important;
+}
+
+#closedial:hover,#closedial2:hover,#exitCancel:hover,#exitButton:hover{
+    border:3px solid black;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+#programmi,#about{
+    cursor:pointer;
+}
+#imgabout{
+    max-width:100%;
+
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Programma 101 - Università di Cassino</title>
+
+        <!-- Include meta tag to ensure proper rendering and touch zooming -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <!-- Include the jQuery library -->
+       <script type="text/javascript" src="js/jquery-2.2.2.min.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/style_topbar.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/style_loadprogram.css" />
+		<link rel="shortcut icon" href="favicon.ico" > <!-- favicon -->
+		
+        <script type="text/javascript" src="js/funzioni.js"></script>
+        <script type="text/javascript" src="js/reader.js"></script>
+        <script type="text/javascript" src="js/view.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/big.js"></script>
+
+		<!--TIPPED TOOLTIP --> 
+        <script type="text/javascript" src="js/tipped/tipped.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/tipped/tipped.css" />
+
+        <!--<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>-->
+
+    </head>
+	
+<body>
+
+<audio class="audioDemo" preload="none"> 
+            <source id="audiotag1" src="keystroke.wav">
+</audio>
+
+
+<ul id="menuPrincipale">
+	<li class="dropdown">
+		<a href="#" class="dropbtn">Programmi</a>
+		<div class="dropdown-content">
+		  <a id="programmi">Carica programmi online</a>
+		  <label for="files" class="custom-file-upload">
+		  <a id="upload">Carica dal disco</a>
+		  <input type="file" id="files" name ="file" accept ='text/plain' onchange='openFile(event)'/>
+		  </label>
+		  <a id="save">Salva su disco</a>
+		</div>
+	</li>
+    <li class="dropdown">	
+		<a href="#" class="dropbtn">Aiuto</a>
+		<div class="dropdown-content">
+            <a href="http://p101.unicas.it/p101/pdf/ManualeProgrammazione.pdf" target="_blank">P101 Guida per il programmatore</a>
+            <a href="http://p101.unicas.it/p101/pdf/P101ManualeGenerale.pdf" target="_blank">P101 Guida Generale</a>
+            <a href="http://p101.unicas.it/p101/pdf/BreveDescrizioneSistemaOnline.pdf" target="_blank">Guida utente al simulatore</a>
+            <a href="http://p101.unicas.it/p101/pdf/UserGuide.pdf" target="_blank">Impostazioni del simulatore</a>
+            <a href="http://p101.unicas.it/p101/pdf/Microstoria_GDeSandre2016.pdf" target="_blank">"Microstoria" a cura di G. De Sandre</a>
+		</div>
+	</li>
+
+    <li><a id="about">About</a></li>
+
+</ul>
+
+<div id="modal">
+</div>
+	
+    <div id="modal2" >
+        <div class="about">
+            <a href="http://www.unicas.it" target="blank"><img src="images/Loghi.png"/></a>
+        </div>
+        <p><strong> Breve presentazione </strong><br>
+            Questo simulatore è stato sviluppato nell'ambito di una collaborazione tra il Dipartimento di Ingegneria Elettrica e dell'Informazione
+            Maurizio Scarano dell'Università di Cassino e l'Ing. Giovanni De Sandre, coinventore della <a href="https://it.wikipedia.org/wiki/Olivetti_Programma_101" target="blank">Programma 101 di Olivetti.</a><br>
+            Si tratta del porting in javascript del simulatore sviluppato personalmente da De Sandre in Excel VBA.<br>
+            Da questo <a href="http://p101.unicas.it/p101/pdf/Microstoria_GDeSandre2016.pdf" target="blank">link</a> è possibile scaricare la
+            breve storia redatta da De Sandre sull'invenzione della P101 avvenuta ad opera di Piergiorgio Perotto, Giovanni De Sandre e Gastone Garziera nel 1965.<br>
+            Nell'ambito di questa collaborazione è nato anche il progetto <a href="http://www.unicas.it/sia/eventi/p101.aspx" target="_blank">P101@Unicas</a>
+            rivolto in particolar modo agli Istituti Superiori e realizzato con il patrocinio di <a href="https://blog.seeweb.it/p101unicas-appuntamento-con-de-sandre/" target="blank">SeeWeb S.r.l</a><br><br>
+        <strong> P101 Simulator </strong><br>
+        Giovanni De Sandre, Gastone Garziera<br><br>
+        <strong> Università di Cassino </strong><br>
+        Supervisione: <a href="mailto:tortorella@unicas.it?subject=P101 web app">Francesco Tortorella</a>, <a href="mailto:m.molinara@unicas.it?subject=P101 web app">Mario Molinara</a><br>
+        Sviluppo: Mario Maraone,con la collaborazione di Fabio Sasso e Marco Ferdinandi<br><br>
+        Siamo su Google Play, scarica l'app della P101:<br>
+        <a href="https://play.google.com/store/apps/details?id=it.unicas.p101" target="blank"><img src="images/googleplay.jpg" height="80" width="70"/></a><br>
+        <strong>Release 0.9 (beta) - novembre 2016</strong><br><br></p>
+        <strong>Powered by:</strong><br>
+        <a href="http://www.casi.unicas.it/" target="blank"> <img src="images/CASI.png" height="36" width="62"/></a>
+        <button id="closedial2">Chiudi</button>
+	</div>
+
+    <div id="modal3" >
+        Sicuro di voler uscire?<br><br><br>
+        <button id="exitCancel">Annulla</button>
+        <button id="exitButton">Ok</button>
+    </div>
+	
+	<div id="output">
+	 
+	     <div id="posizione_stampa">
+             <div id="stampa"></div>
+         </div>
+
+	     <div id="caricaProgramma">
+             <div id="logo">
+                 <img src="images/logo.png" height="192" width="192"/>
+             </div>
+            <div id="cartolinaDiv">
+                <img  src= "images/cartolinameta1.png" alt="cartolina" id="cartolina">
+            </div>
+            <div id="cartolinaDiv2">
+                <input type="text" id="progName" name="fname">
+            </div>
+         </div>
+    
+	     <div id="registri">
+        	<table>
+                <tr>
+                    <td class="columnA">M</td>
+                    <td class="columnB" id="register_M"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">A</td>
+                    <td id="register_A"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">R</td>
+                    <td id="register_R"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">B</td>
+                    <td id="register_B"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">B/</td>
+                    <td id="register_b"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">C</td>
+                    <td id="register_C"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">C/</td>
+                    <td id="register_c"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">D</td>
+                    <td id="register_D"></td>
+                </tr>
+
+                <tr>
+                    <td class="columnA">D/</td>
+                    <td id="register_d"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">E</td>
+                    <td id="register_E"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">E/</td>
+                    <td id="register_e"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">F</td>
+                    <td id="register_F"></td>
+                </tr>
+                <tr>
+                    <td class="columnA">F/</td>
+                    <td id="register_f"></td>
+                </tr>
+            </table>
+         </div>
+         <div id="descrizione_programma">
+         </div>
+    </div>
+
+<div id = "p101">
+  <div id="lights">
+            <div id="etichetta"><b>Olivetti</b> <i>Programma101</i></div>
+            <span id="green_light"></span>
+            <span id="red_light"></span>
+  </div>
+	
+	
+   <div id="controlli">
+       <span id="resetTop" class="reset">GEN RESET</span>
+	   <span id="interlinea">I</span>
+       <span id="eliminaStampa">Elimina Stampa</span>
+       <span id="record_pr">RECORD PR</span>
+       <span id="print_pr">PRINT PR</span>
+       
+       
+<select id="spinnerTop">
+  <option value="0">0</option>
+  <option value="1">1</option>
+  <option value="2" selected>2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+</select>    
+    	
+   </div>
+   
+   <span class="reset" id="resetBottom">GEN RESET</span>
+   
+   <div id="tastiera">
+       <div id="blocco_tasti1">
+            <span class="registro init">F</span>
+            <span class="operatore" id="fromM">&#x2191;</span>
+            <span class="numero">7</span>
+            <span class="numero">8</span>
+            <span class="numero">9</span>
+            <span class="registro">E</span>
+            <span id="clear"> Clear </span>
+            <span class="numero">4</span>
+            <span class="numero">5</span>
+            <span class="numero">6</span>
+            <span class="registro">D</span>
+            <span id="slash">/</span>
+            <span class="numero">1</span>
+            <span class="numero">2</span>
+            <span class="numero">3</span>
+            <span class="registro">C</span>
+            <span class="registro">B</span>
+            <span class="numero">0</span>
+            <span class="numero" id="virgola">.</span>
+            <span class="numero" id="segno">-</span>
+       
+       
+       </div>
+       
+       <div id="blocco_tasti2">
+       
+            <span id="start">START</span>
+       </div>
+       <div id="blocco_tasti3">
+
+            <span id="toA">&#x2193;</span>
+            <span id="exchange">&#x2195;</span>
+            <span class="operatore" id="sqrt">&#x221A;</span>
+            <span class="operatore" id="subtract">-</span>
+            <span class="operatore" id="multiply">X</span>
+            <span class="registro">A</span>
+            <span class="operatore" id="print">&#x25CA;</span>
+            <span class="operatore" id="sum">+</span>
+            <span class="operatore" id="divide">&#x00F7;</span>
+            <span class="registro">R</span>
+            <span class="operatore" id="clear_reg">*</span>
+            <span class="label" id="label_V">V</span>
+            <span class="label" id="label_W">W</span>
+            <span class="label" id="label_Y">Y</span>
+            <span class="label" id="label_Z">Z</span>
+       </div>   
+   </div>
+   
+   <input type="number" id="spinnerBottom" class="spinner" MIN="0" MAX="15" VALUE="2" >
+</div>
+   </body>
+
+
+</html>
